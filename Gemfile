@@ -14,6 +14,7 @@ gem 'rails', '4.1.4'
    gem 'spring'
  end
 
+gem 'devise'
 
 
 gem 'sass-rails', '~> 4.0.3'
