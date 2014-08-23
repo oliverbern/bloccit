@@ -19,7 +19,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     authorize @topic
     if @topic.save
-      flash[:notice] = "Post was saved."
+      flash[:notice] = "Topic was saved."
       redirect_to @topic
     else
       flash[:error] = "There was an error saving the topic. Please try again."
@@ -46,7 +46,7 @@ end
 private
 
 def topic_params
-  params.require(:topic).permit(:title, :body)
+  params.require(:topic).permit(:topic, :post, :id)
 end
 
 end
