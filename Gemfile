@@ -15,6 +15,7 @@ gem 'rails', '4.1.4'
  end
 
 gem 'devise'
+gem 'pundit'
 
 
 gem 'sass-rails', '~> 4.0.3'
