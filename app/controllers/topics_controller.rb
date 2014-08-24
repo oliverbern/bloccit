@@ -46,7 +46,7 @@ end
 private
 
 def topic_params
-  params.require(:topic).permit(:topic, :post, :id)
+  params.require(:topic).permit(:name, :description, :public)
 end
 
 end
