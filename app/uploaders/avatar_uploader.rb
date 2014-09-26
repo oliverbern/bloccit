@@ -28,7 +28,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # process :scale => [200, 300]
   #
   # def scale(width, height)
-  #   # do something
+  #   # do somethingdf
   # end
 
   # Create different versions of your uploaded files:
