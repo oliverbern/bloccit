@@ -11,10 +11,9 @@
       <div class="media">
         <div class="media-body">
           <h4 class="media-heading">
-<<<<<<< HEAD
-=======
+
             <%= image_tag(post.postimage, size: "40x40") %>
->>>>>>> add_pagination
+
             <%= link_to post.title, [@topic, post] %>
           </h4>
            <small>
@@ -24,10 +23,9 @@
         </div>
       </div>
     <% end %>
-<<<<<<< HEAD
-=======
+
     <%= will_paginate @posts %>
->>>>>>> add_pagination
+
   </div>
   <div class="col-md-4">
     <% if policy(Post.new).create? %>

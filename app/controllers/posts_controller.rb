@@ -48,11 +48,9 @@ class PostsController < ApplicationController
 private
 
 def post_params
-<<<<<<< HEAD
-  params.require(:post).permit(:title, :body)
-=======
+
   params.require(:post).permit(:title, :body, :postimage)
->>>>>>> add_pagination
+
 end
 
 end
