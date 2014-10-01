@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
   
   has_many :posts
+<<<<<<< HEAD
+=======
+  	mount_uploader :avatar, AvatarUploader
+>>>>>>> add_pagination
 
   def role?(base_role)
     role == base_role.to_s

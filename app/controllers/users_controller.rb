@@ -13,6 +13,10 @@
    private
  
    def user_params
+<<<<<<< HEAD
      params.require(:user).permit(:name)
+=======
+     params.require(:user).permit(:name, :avatar)
+>>>>>>> add_pagination
    end
  end

@@ -38,3 +38,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'figaro'
+
+
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+gem 'will_paginate', '~> 3.0.5'
+

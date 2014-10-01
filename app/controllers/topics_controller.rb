@@ -1,13 +1,21 @@
 class TopicsController < ApplicationController
   def index
+<<<<<<< HEAD
      @topics = Topic.all
+=======
+     @topics = Topic.paginate(page: params[:page], per_page: 5)
+>>>>>>> add_pagination
      authorize @topics
   end
 
   def show
     @topic = Topic.find(params[:id])
+<<<<<<< HEAD
      @posts = @topic.posts
     authorize @topic
+=======
+     @posts = @topic.posts.paginate(page: params[:page], per_page: 5)
+>>>>>>> add_pagination
   end
 
   def new

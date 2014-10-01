@@ -1,5 +1,9 @@
 class Post < ActiveRecord::Base
   has_many :comments
+<<<<<<< HEAD
+=======
+  	mount_uploader :postimage, PostimageUploader
+>>>>>>> add_pagination
   belongs_to :user
     belongs_to :topic
 
