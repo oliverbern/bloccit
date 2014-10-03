@@ -11,20 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20140823072228) do
-=======
-ActiveRecord::Schema.define(version: 20140926213123) do
->>>>>>> add_pagination
+ActiveRecord::Schema.define(version: 20141001202459) do
 
   create_table "comments", force: true do |t|
-    t.text     "body"
-    t.integer  "post_id"
+    t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "post_id"
   end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id"
 
   create_table "posts", force: true do |t|
     t.string   "title"
@@ -33,10 +28,7 @@ ActiveRecord::Schema.define(version: 20140926213123) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "topic_id"
-<<<<<<< HEAD
-=======
     t.string   "postimage"
->>>>>>> add_pagination
   end
 
   add_index "posts", ["topic_id"], name: "index_posts_on_topic_id"
@@ -69,10 +61,7 @@ ActiveRecord::Schema.define(version: 20140926213123) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
-<<<<<<< HEAD
-=======
     t.string   "avatar"
->>>>>>> add_pagination
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
