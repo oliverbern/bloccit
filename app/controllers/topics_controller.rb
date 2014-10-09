@@ -9,7 +9,19 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
      @posts = @topic.posts.paginate(page: params[:page], per_page: 5)
+  end
 
+  def destroy
+    @topic = Topic.find(params[:id])
+    authorize @topic
+
+    if @topic.destroy
+      flash[:notice] = "Topic deleted."
+      redirect_to "/topics"
+    else
+      flash[:error] = "There was an error deleting the topic. Please try again."
+      render :show
+    end
   end
 
   def new

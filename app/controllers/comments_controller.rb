@@ -8,6 +8,21 @@ class CommentsController < ApplicationController
     @comments = Comment.all
   end
 
+  def destroy
+     @topic = Topic.find(params[:topic_id])
+     @post = @topic.posts.find(params[:post_id])
+     @comment = @post.comments.find(params[:id])
+ 
+     authorize @comment
+     if @comment.destroy
+       flash[:notice] = "Comment was removed."
+       redirect_to [@topic, @post]
+     else
+       flash[:error] = "Comment couldn't be deleted. Try again."
+       redirect_to [@topic, @post]
+     end
+  end
+
   # GET /comments/1
   # GET /comments/1.json
   def show
@@ -56,18 +71,12 @@ class CommentsController < ApplicationController
 
   # DELETE /comments/1
   # DELETE /comments/1.json
-  def destroy
-    @comment.destroy
-    respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:comment_id])
+      @comment = Comment.find(params[:id])
     end
 
     def set_post
@@ -76,6 +85,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:comment)
+      params.require(:comment).permit(:comment, :comment_id)
     end
 end
