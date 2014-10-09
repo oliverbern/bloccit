@@ -7,14 +7,14 @@ class Post < ActiveRecord::Base
   
   default_scope { order('rank DESC') }
   
-  after_create :create_vote
+ 
 
   mount_uploader :postimage, PostimageUploader
   
   validates :title, length: { minimum: 5 }, presence: true
   validates :body, length: { minimum: 20}, presence: true
-  # validates :topic, presence: true
-  # validates :user, presence: true
+  validates :topic, presence: true
+  validates :user, presence: true
     
   def up_votes
     votes.where(value: 1).count
@@ -38,7 +38,4 @@ class Post < ActiveRecord::Base
   def create_vote
     user.votes.create(value: 1, post: self)
   end
-  
-  
-  
 end
