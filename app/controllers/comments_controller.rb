@@ -9,18 +9,16 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-     @topic = Topic.find(params[:topic_id])
-     @post = @topic.posts.find(params[:post_id])
+  
      @comment = @post.comments.find(params[:id])
  
      authorize @comment
      if @comment.destroy
        flash[:notice] = "Comment was removed."
-       redirect_to [@topic, @post]
      else
        flash[:error] = "Comment couldn't be deleted. Try again."
-       redirect_to [@topic, @post]
      end
+     redirect_to [@post.topic, @post]
   end
 
   # GET /comments/1
@@ -76,7 +74,7 @@ class CommentsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = @post.comments.find(params[:id])
     end
 
     def set_post

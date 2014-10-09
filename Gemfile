@@ -12,7 +12,8 @@ gem 'rails', '4.1.4'
  group :development do
    gem 'sqlite3'
    gem 'spring'
- end
+   gem 'pry-rails'
+  end
 
 gem 'devise'
 gem 'pundit'
@@ -44,4 +45,5 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'will_paginate', '~> 3.0.5'
+
 
