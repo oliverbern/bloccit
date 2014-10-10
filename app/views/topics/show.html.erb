@@ -8,21 +8,7 @@
   <div class="col-md-8">
     <p class="lead"><%= @topic.description %></p>
     <% @posts.each do |post| %>
-      <div class="media">
-		  <%= render partial: 'votes/voter', locals: { post: post } %>
-        <div class="media-body">
-          <h4 class="media-heading">
-
-            <%= image_tag(post.postimage, size: "40x40") %>
-
-            <%= link_to post.title, [@topic, post] %>
-          </h4>
-           <small>
-              submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %><br/>
-              
-    </small>
-        </div>
-      </div>
+      <%= render partial: 'posts/post', locals: {post: post} %>
     <% end %>
 
     <%= will_paginate @posts %>
