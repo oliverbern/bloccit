@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js
+  
   before_action :set_post
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
@@ -13,12 +15,16 @@ class CommentsController < ApplicationController
      @comment = @post.comments.find(params[:id])
  
      authorize @comment
+     
+     
      if @comment.destroy
        flash[:notice] = "Comment was removed."
      else
        flash[:error] = "Comment couldn't be deleted. Try again."
      end
-     redirect_to [@post.topic, @post]
+     respond_with(@comment) do |format|
+       format.html { redirect_to [@post.topic, @post] }
+     end
   end
 
   # GET /comments/1
