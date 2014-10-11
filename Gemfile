@@ -7,6 +7,7 @@ gem 'rails', '4.1.4'
  group :production do
    gem 'pg', '~> 0.17.1'
    gem 'rails_12factor'
+   gem 'newrelic_rpm'
  end
  
  group :development do
