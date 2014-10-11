@@ -47,6 +47,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.user_id = current_user.id
     @comment.post = @post
+    @new_comment = Comment.new
 
     respond_to do |format|
       if @comment.save

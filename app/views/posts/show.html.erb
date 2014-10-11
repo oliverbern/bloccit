@@ -33,13 +33,14 @@
  </div>
 
   	<h3>Comments:</h3>
-		
+
 		<% @post.comments.each do |c|%>
 		
        <%= render(partial: 'comments/comment', locals: {comment: c}) %>
 	   
 	   <% end %>
-
+ 
+   
     
 
  
@@ -47,4 +48,5 @@
   <% if user_signed_in?  %>
  	<%= render({partial: 'comments/form', locals: {topic: @topic, post: @post}}) %>
   <% end %>
+
 
